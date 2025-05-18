@@ -1,2 +1,2 @@
 # llmpred-code
-This is the repository for LLMPred paper
+This is the repository for LLMPred paper and currently being updated
