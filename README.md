@@ -1,5 +1,5 @@
 # llmpred-code
-This is the repository for LLMPred paper and currently being updated.
+This is the repository for LLMPred paper and **currently being updated**.
 
 # Abastract of LLMPred
 Time-series prediction or forecasting is critical across many real-world dynamic systems, and recent studies have proposed using Large Language Models (LLMs) for this task due to their strong generalization capabilities and ability to perform well without extensive pre-training.
