@@ -48,7 +48,9 @@ python step_6_gaussian_transform.py --train_len 48 --test_len 48 --dataset ETTm2
 ```
 
 ## Multivariate analysis
-```python step_2_run_gen.py --exp run_multivariate --train_len 48 --test_len 48 --dataset ETTm2 --freq high --alpha 0.7 --num_feat 6 --spec_feat 100 --max_tokens 200 --model_name llama_3b --limit 50 --num_samples 6```
+```
+python step_2_run_gen.py --exp run_multivariate --train_len 48 --test_len 48 --dataset ETTm2 --freq high --alpha 0.7 --num_feat 6 --spec_feat 100 --max_tokens 200 --model_name llama_3b --limit 50 --num_samples 6
+```
 
 
 
