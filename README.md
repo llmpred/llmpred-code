@@ -31,14 +31,13 @@ We have set:
 - `limit` of number of training prompts to 50  
 - `num_samples` to 6
 
-
-```bash
+```
 python step_2_run_gen.py --exp run_individual --train_len 48 --test_len 48 --dataset ETTm2 --freq high --alpha 0.7 --num_feat 1 --spec_feat 3 --max_tokens 200 --model_name llama_3b --limit 50 --num_samples 6
 ```
-```bash
+```
 python step_3_post_process_llm_output.py --train_len 48 --test_len 48 --dataset ETTm2 --freq high --num_feat 1 --spec_feat 3 --max_tokens 200 --model_name llama_3b --limit 50 --num_samples 6
 ```
-```bash
+```
 python step_4_pre_process_for_nn_2.py --train_len 48 --test_len 48 --dataset ETTm2 --freq low --num_feat 1 --spec_feat 3 --max_tokens 200 --model_name llama_3b --limit 50 --num_samples 6
 ```
 ```
@@ -49,3 +48,9 @@ python step_6_gaussian_transform.py --train_len 48 --test_len 48 --dataset ETTm2
 ```
 
 ## Multivariate analysis
+`python step_2_run_gen.py --exp run_multivariate --train_len 48 --test_len 48 --dataset ETTm2 --freq high --alpha 0.7 --num_feat 6 --spec_feat 100 --max_tokens 200 --model_name llama_3b --limit 50 --num_samples 6`
+
+
+
+
+
