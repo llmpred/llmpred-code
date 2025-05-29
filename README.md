@@ -12,6 +12,7 @@ However, their effectiveness in handling complex, noisy, and multivariate time-s
 Intermediate datasets including input to the LLM and other models and their outputs can be found at [Dataset](https://drive.google.com/drive/folders/1z3gY4nfkHPGF0JJcoKwRQCS3fYjstGkj?usp=sharing). To run the code download the dataset and keep it in data folder in the parent folder.
 
 # Requirements
+`pip install -r requirements.txt`
 
 # Run the code
 
