@@ -15,10 +15,10 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 # create the path directories
 path_curr = Path.cwd()
 path_parent = path_curr.parent.parent.__str__()
-path_in = path_parent + '/data/data_1_input_data'
+path_in = path_parent + '/data_uni/data_1_input_data'
 path_model = path_parent + '/models'
-path_out = path_parent + '/data/data_2_output_data'
-path_out_meta = path_parent + '/data/data_2_output_meta'
+path_out = path_parent + '/data_uni/data_2_output_data'
+path_out_meta = path_parent + '/data_uni/data_2_output_meta'
 
 # create the folder if not created for the generator ouput
 if not os.path.exists(path_out):

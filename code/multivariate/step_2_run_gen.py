@@ -18,11 +18,17 @@ import argparse
 
 # create the path directories
 path_curr = Path.cwd()
-path_in = path_curr.parent.__str__() + '/data_1_input_data'
+path_parent = path_curr.parent.parent.__str__()
+path_in = path_curr.parent.__str__() + '/data_multi/data_1_input_data'
 path_model = path_curr.parent.parent.parent.__str__() + '/models'
-path_out = path_curr.parent.__str__() + '/data_2_output_data'
+path_out = path_curr.parent.__str__() + '/data_multi/data_2_output_data'
+path_out_meta = path_parent + '/data_multi/data_2_output_meta'
+# create the folder if not created for the generator ouput
 if not os.path.exists(path_out):
     os.makedirs(path_out)
+# create the folder if not created to store meta results
+if not os.path.exists(path_out_meta):
+    os.makedirs(path_out_meta)
 
 # Create the parser
 parser = argparse.ArgumentParser(description="A simple argument parser example.")
@@ -62,21 +68,6 @@ num_samples = args.num_samples
 model_name = args.model_name
 limit = args.limit
 exp = args.exp
-
-# # temporarily add the values
-# train_len = 48
-# test_len = 48
-# dataset = 'ETTh1'
-# freq = 'low'
-# cut_off = float(2.5)
-# num_cutoffs = 1
-# num_freq_comps = 1
-# num_feat = 1
-# spec_feat = -1
-# max_tokens = 200
-# model_name = 'llama_7b'
-# limit = 50
-# exp = 'diff_cutoff'
 
 # open .txt file to save the data. Since we are working with text prompts, it is preferrable to go for .txt file than
 # csv files
@@ -312,10 +303,7 @@ with torch.no_grad():
     f.flush()
     f.close()
 
-    path_out = r'/opt/home/e126410/llm/codes/implementation/meta_results/time'
-    if not os.path.exists(path_out):
-        os.makedirs(path_out)
-    with open(path_out + '/' + filt_output + '.txt',
+    with open(path_out_meta + '/' + filt_output + '.txt',
               'w+') as f_m:
         f_m.writelines(str(item) + "\n" for item in list_times)
 

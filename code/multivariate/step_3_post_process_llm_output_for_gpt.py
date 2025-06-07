@@ -337,27 +337,13 @@ model_name = args.model_name
 limit = args.limit
 exp = args.exp
 
-# train_len = 48
-# test_len = 48
-# dataset = 'ETTh1'
-# freq = 'low'
-# cut_off = 15
-# num_cutoffs = 1
-# alpha = 0.6
-# num_feat = 1
-# spec_feat = 5
-# max_tokens = 200
-# num_samples = 6
-# model_name = 'GPT-4o-mini'
-# limit = 50
-# exp = 'run_individual_feat'
 
 # open .txt file to save the data. Since we are working with text prompts, it is preferrable to go for .txt file than
 # csv files
 path_curr = Path.cwd()
-path_max_val = path_curr.parent.__str__() + '/data_1_input_data'
-path_llm_out = path_curr.parent.__str__() + '/data_2_output_data'
-path_llm_post_processed = path_curr.parent.__str__() + '/data_3_llm_post_processed'
+path_max_val = path_curr.parent.__str__() + '/data_multi/data_1_input_data'
+path_llm_out = path_curr.parent.__str__() + '/data_multi/data_2_output_data'
+path_llm_post_processed = path_curr.parent.__str__() + '/data_multi/data_3_llm_post_processed'
 
 llm_output = f'{exp}_{dataset}_{model_name}_{train_len}_{test_len}_{num_cutoffs}_{alpha}_{num_feat}_{spec_feat}_{max_tokens}_{freq}'
 path_llm_out_text = path_llm_out + '/' + llm_output + '.txt'

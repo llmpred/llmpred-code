@@ -106,8 +106,9 @@ def group_and_sort(pred, gt, num_feat):
 # open .txt file to save the data. Since we are working with text prompts, it is preferrable to go for .txt file than
 # csv files
 path_curr = Path.cwd()
-path_llm_post_processed = path_curr.parent.__str__() + '/data_3_llm_post_processed'
-path_pre_process_nn = path_curr.parent.__str__() + '/data_4_pre_process_nn'
+path_parent = path_curr.parent.parent.__str__()
+path_llm_post_processed = path_parent + '/data_multi/data_3_llm_post_processed'
+path_pre_process_nn = path_parent + '/data_multi/data_4_pre_process_nn'
 
 # Create the parser
 parser = argparse.ArgumentParser(description="A simple argument parser example.")

@@ -140,8 +140,9 @@ def get_df(pred, gt, meta, round, num_feat):
 # open .txt file to save the data. Since we are working with text prompts, it is preferrable to go for .txt file than
 # csv files
 path_curr = Path.cwd()
-path_pre_process_nn = path_curr.parent.__str__() + '/data_4_pre_process_nn'
-path_nn_out = path_curr.parent.__str__() + '/data_5_nn_out'
+path_parent = path_curr.parent.parent.__str__()
+path_pre_process_nn = path_curr.parent.__str__() + '/data_multi/data_4_pre_process_nn'
+path_nn_out = path_curr.parent.__str__() + '/data_multi/data_5_nn_out'
 if not os.path.exists(path_nn_out):
     os.makedirs(path_nn_out)
 
@@ -185,21 +186,7 @@ model_name = args.model_name
 limit = args.limit
 exp = args.exp
 
-# # # temporarily add the values
-# train_len = 48
-# test_len = 48
-# dataset = 'electricity'
-# freq = 'low'
-# cut_off = float(2.5)
-# alpha = 0.6
-# num_cutoffs = 1
-# num_freq_comps = 1
-# num_feat = 1
-# spec_feat = 0
-# max_tokens = 200
-# model_name = 'GPT-4o-mini'
-# limit = 50
-# exp = 'run_individual_feat'
+
 
 
 file_name = f'{exp}_{dataset}_{model_name}_{train_len}_{test_len}_{num_cutoffs}_{alpha}_{num_feat}_{spec_feat}_{max_tokens}_{freq}'

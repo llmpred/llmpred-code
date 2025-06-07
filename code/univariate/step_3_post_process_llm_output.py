@@ -340,9 +340,9 @@ exp = args.exp
 # csv files
 path_curr = Path.cwd()
 path_parent = path_curr.parent.parent.__str__()
-path_max_val = path_parent + '/data/data_1_input_data'
-path_llm_out = path_parent + '/data/data_2_output_data'
-path_llm_post_processed = path_parent + '/data/data_3_llm_post_processed'
+path_max_val = path_parent + '/data_uni/data_1_input_data'
+path_llm_out = path_parent + '/data_uni/data_2_output_data'
+path_llm_post_processed = path_parent + '/data_uni/data_3_llm_post_processed'
 
 llm_output = f'{exp}_{dataset}_{model_name}_{train_len}_{test_len}_{num_cutoffs}_{alpha}_{num_feat}_{spec_feat}_{max_tokens}_{freq}'
 path_llm_out_text = path_llm_out + '/' + llm_output + '.txt'

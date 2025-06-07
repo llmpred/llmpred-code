@@ -15,7 +15,6 @@ from torch.utils.data import Dataset, DataLoader, random_split, Subset
 import numpy as np
 import pandas as pd
 import os
-import sys
 from pathlib import Path
 import argparse
 
@@ -141,8 +140,8 @@ def get_df(pred, gt, meta, round, num_feat):
 # csv files
 path_curr = Path.cwd()
 path_parent = path_curr.parent.parent.__str__()
-path_pre_process_nn = path_parent + '/data/data_4_pre_process_nn'
-path_nn_out = path_parent + '/data/data_5_nn_out'
+path_pre_process_nn = path_parent + '/data_uni/data_4_pre_process_nn'
+path_nn_out = path_parent + '/data_uni/data_5_nn_out'
 if not os.path.exists(path_nn_out):
     os.makedirs(path_nn_out)
 

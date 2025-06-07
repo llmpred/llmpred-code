@@ -300,69 +300,51 @@ def store_post_processed_data_descaled(path_out, real_x, real_y, pred_y, num_fea
 
 
 # # # Create the parser
-# parser = argparse.ArgumentParser(description="A simple argument parser example.")
-#
-# # Add arguments
-# parser.add_argument("--train_len", type=int, help="Train length")
-# parser.add_argument("--test_len", type=int, help="Test length", required=True)
-# parser.add_argument("--dataset", type=str, help="Dataset", required=True)
-# parser.add_argument("--freq", type=str, help="Whether it is high or low frequency", required=True)
-# parser.add_argument("--cut_off", type=float, default=15.0, help="cutoff_frequencey used", required=False)
-# parser.add_argument("--num_cutoffs", type=int, default=1, help="Number of frequency components", required=False)
-# parser.add_argument("--alpha", type=float, default=0.6,
-#                     help="Alpha value used to combine the mse and 1/cosine sim metrics to decide the cutoff freq",
-#                     required=False)
-# parser.add_argument("--num_feat", type=int, help="Number of features", required=True)
-# parser.add_argument("--spec_feat", type=int, default=100, help="Specific feature to be select", required=False)
-# parser.add_argument("--max_tokens", type=int, help="maximum tokens to be predicted", required=True)
-# parser.add_argument("--model_name", type=str, help="models to be used", required=True)
-# parser.add_argument("--limit", type=int, help="limit of prompts", required=True)
-# parser.add_argument("--num_samples", type=int, default=8, help="batch size", required=False)
-# parser.add_argument("--exp", type=str, help="name of the experiment conducted", required=True)
-#
-# # Parse the arguments
-# args = parser.parse_args()
-#
-# train_len = args.train_len
-# test_len = args.test_len
-# dataset = args.dataset
-# freq = args.freq
-# cut_off = args.cut_off
-# num_cutoffs = args.num_cutoffs
-# alpha = args.alpha
-# num_feat = args.num_feat
-# spec_feat = args.spec_feat
-# max_tokens = args.max_tokens
-# num_samples = args.num_samples
-# model_name = args.model_name
-# limit = args.limit
-# exp = args.exp
+parser = argparse.ArgumentParser(description="A simple argument parser example.")
 
-train_len = 96
-test_len = 96
-dataset = 'weather'
-freq = 'low'
-cut_off = 15
-num_cutoffs = 1
-alpha = 0.7
-num_feat = 6
-spec_feat = 100
-max_tokens = 200
-num_samples = 6
-model_name = 'deepseek_7b'
-limit = 50
-exp = 'run_multivariate'
+# Add arguments
+parser.add_argument("--train_len", type=int, help="Train length")
+parser.add_argument("--test_len", type=int, help="Test length", required=True)
+parser.add_argument("--dataset", type=str, help="Dataset", required=True)
+parser.add_argument("--freq", type=str, help="Whether it is high or low frequency", required=True)
+parser.add_argument("--cut_off", type=float, default=15.0, help="cutoff_frequencey used", required=False)
+parser.add_argument("--num_cutoffs", type=int, default=1, help="Number of frequency components", required=False)
+parser.add_argument("--alpha", type=float, default=0.7,
+                    help="Alpha value used to combine the mse and 1/cosine sim metrics to decide the cutoff freq",
+                    required=False)
+parser.add_argument("--num_feat", type=int, help="Number of features", required=True)
+parser.add_argument("--spec_feat", type=int, default=100, help="Specific feature to be select", required=False)
+parser.add_argument("--max_tokens", type=int, help="maximum tokens to be predicted", required=True)
+parser.add_argument("--model_name", type=str, help="models to be used", required=True)
+parser.add_argument("--limit", type=int, help="limit of prompts", required=True)
+parser.add_argument("--num_samples", type=int, default=8, help="batch size", required=False)
+parser.add_argument("--exp", type=str, help="name of the experiment conducted", required=True)
+
+# # Parse the arguments
+args = parser.parse_args()
+
+train_len = args.train_len
+test_len = args.test_len
+dataset = args.dataset
+freq = args.freq
+cut_off = args.cut_off
+num_cutoffs = args.num_cutoffs
+alpha = args.alpha
+num_feat = args.num_feat
+spec_feat = args.spec_feat
+max_tokens = args.max_tokens
+num_samples = args.num_samples
+model_name = args.model_name
+limit = args.limit
+exp = args.exp
 
 # open .txt file to save the data. Since we are working with text prompts, it is preferrable to go for .txt file than
 # csv files
 path_curr = Path.cwd()
-# path_max_val = path_curr.parent.__str__() + '/data_1_input_data'
-# path_llm_out = path_curr.parent.__str__() + '/data_2_output_data'
-# path_llm_post_processed = path_curr.parent.__str__() + '/data_3_llm_post_processed'
-
-path_max_val = path_curr.parent.parent.__str__() + '/data_1_input_data'
-path_llm_out = path_curr.parent.parent.__str__() + '/data_2_output_data'
-path_llm_post_processed = path_curr.parent.parent.__str__() + '/data_3_llm_post_processed'
+path_parent = path_curr.parent.parent.__str__()
+path_max_val = path_curr.parent.parent.__str__() + '/data_multi/data_1_input_data'
+path_llm_out = path_curr.parent.parent.__str__() + '/data_multi/data_2_output_data'
+path_llm_post_processed = path_curr.parent.parent.__str__() + '/data_multi/data_3_llm_post_processed'
 
 
 llm_output = f'{exp}_{dataset}_{model_name}_{train_len}_{test_len}_{num_cutoffs}_{alpha}_{num_feat}_{spec_feat}_{max_tokens}_{freq}'

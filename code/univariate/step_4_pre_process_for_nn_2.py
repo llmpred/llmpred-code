@@ -6,10 +6,6 @@ import os.path
 
 import pandas as pd
 import numpy as np
-import re
-import matplotlib.pyplot as plt
-from scipy.stats import mode
-import tqdm
 from pathlib import Path
 import statistics
 import argparse
@@ -107,8 +103,8 @@ def group_and_sort(pred, gt, num_feat):
 # csv files
 path_curr = Path.cwd()
 path_parent = path_curr.parent.parent.__str__()
-path_llm_post_processed = path_parent + '/data/data_3_llm_post_processed'
-path_pre_process_nn = path_parent + '/data/data_4_pre_process_nn'
+path_llm_post_processed = path_parent + '/data_uni/data_3_llm_post_processed'
+path_pre_process_nn = path_parent + '/data_uni/data_4_pre_process_nn'
 
 # Create the parser
 parser = argparse.ArgumentParser(description="A simple argument parser example.")

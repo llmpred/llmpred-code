@@ -8,9 +8,9 @@ import argparse
 # csv files
 path_curr = Path.cwd()
 path_parent = path_curr.parent.parent.__str__()
-path_real_x = path_parent+ '/data/data_1_input_data'
-path_pred_y = path_parent+ '/data/data_4_pre_process_nn'
-path_out = path_parent + '/data/data_6_gaussian_transform'
+path_real_x = path_parent+ '/data_uni/data_1_input_data'
+path_pred_y = path_parent+ '/data_uni/data_4_pre_process_nn'
+path_out = path_parent + '/data_uni/data_6_gaussian_transform'
 
 if not os.path.exists(path_out):
     os.makedirs(path_out)
